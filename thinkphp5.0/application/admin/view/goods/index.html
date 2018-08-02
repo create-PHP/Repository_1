@@ -1,0 +1,77 @@
+{extend name="layout/layout"}
+{block name="main"}
+	<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span><i class="icon-table"></i>商品列表</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+
+        <!-- 搜索条件 -->
+
+        <form action="/admin/goods" method="get"  align="center">
+            显示： 
+                <select name="page_count">
+                    <option value="5">5</option>
+                    <option value="15">15</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>条
+            　　　
+            商品名称： <input type="text" name="search" value="">
+            商品ID： <input type="text" name="search2" value="">
+            <input type="submit" value="搜索"  class=" btn btn-success">
+        </form>
+        <hr>
+        <table class="mws-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>商品名称</th>
+                    <th>商品所属</th>
+                    <th>商品价格</th>
+                    <th>商品库存</th>                 
+                    <th>商品状态</th>
+                    <th>商品属性</th>
+                    <th>商品销量</th>
+                    <th>商品图片</th>
+                    <th>上架时间</th>
+                    <th>商品操作</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+              
+                <tr>
+                    <td></td>                
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>    
+                    <td style="width: 90px"></td>  
+                    <td></td>                 
+                    <td style="width: 202px">
+                        <form action="" method="post" style="display: inline;">                        
+                           <input type="submit" class="btn btn-danger" value="删除">
+                        </form>
+                        <form action="" method="get" style="display: inline;">
+                            <input type="submit" class="btn btn-warning" value="修改">
+                        </form>
+
+                       
+                        <form action="" method="get" style="display: inline;">
+                            <input type="submit" class="btn btn-warning" value="详情">
+                        </form>
+                        
+                    </td>
+                </tr>
+            
+            </tbody>
+        </table>
+    </div>
+    <div id="pages">
+       
+    </div>
+</div>
+{/block}

@@ -1,0 +1,32 @@
+﻿{extend name="layout/layout"}
+{block name="main"}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span>分类添加</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+        <form class="mws-form" action="/admin/product/type" method="post">
+           
+            <div class="mws-form-inline">
+                <div class="mws-form-row">
+                    <label class="mws-form-label"><i style="color: red">*</i>父级分类：</label>
+                     <td>            
+                                     <select name="pid" style="width:315px;">
+                                         <option value="0">--请选择--</option>
+                                        {foreach $data as $k=>$v}
+                                             <option value="{$v.tid}">{$v.level}级分类&nbsp;{$v.name}</option>
+                                        {/foreach}
+                                     </select>   
+                     </td><br><br>
+                    
+                    <label class="mws-form-label"><i style="color: red">*</i>分类名称：</label>
+                 <td><input type="text" id="" value="" size="35" name="name" class="common-text"></td>
+            </div>  
+            <div class="mws-button-row">
+                <input type="submit" value="添加" class="btn btn-danger">
+            </div>           
+        </form>
+    </div>      
+    </div>
+{/block}
+

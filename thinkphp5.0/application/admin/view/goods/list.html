@@ -1,0 +1,214 @@
+{extend name="layout/layout"}
+{block name="main"}
+<form class="layui-form" action="add" method="post" id="tijiao" enctype="multipart/form-data">
+   <div class="layui-form-item">
+    <label class="layui-form-label">分类名称</label>
+    <div class="layui-input-block">
+      <select name="tid" style="width:315px;">
+          <option value="0">--请选择--</option>
+            {foreach $data as $k=>$v}
+               <option value="{$v.tid},{$v.pid}" id="aaa">{$v.level}级分类&nbsp;{$v.name}
+               </option>
+            {/foreach}
+       </select>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">商品名称</label>
+    <div class="layui-input-block">
+      <input type="text" name="gname" required  lay-verify="required" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">商品编号</label>
+    <div class="layui-input-block">
+      <input type="text" name="number" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+   <div class="layui-form-item">
+    <label class="layui-form-label">商品排序</label>
+    <div class="layui-input-block">
+      <input type="text" name="reorder" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">商品单位</label>
+    <div class="layui-input-inline">
+      <input type="text" name="unit" required   autocomplete="off" class="layui-input">
+    </div>
+    <!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
+  </div>
+  <!-- <div class="layui-form-item">
+    <label class="layui-form-label">选择框</label>
+    <div class="layui-input-block">
+      <select name="city" lay-verify="required">
+        <option value=""></option>
+        <option value="0">北京</option>
+        <option value="1">上海</option>
+        <option value="2">广州</option>
+        <option value="3">深圳</option>
+        <option value="4">杭州</option>
+      </select>
+    </div>
+  </div> -->
+  <!-- <div class="layui-form-item">
+    <label class="layui-form-label">复选框</label>
+    <div class="layui-input-block">
+      <input type="checkbox" name="like[write]" title="写作">
+      <input type="checkbox" name="like[read]" title="阅读" checked>
+      <input type="checkbox" name="like[dai]" title="发呆">
+    </div>
+  </div> -->
+  <!-- <div class="layui-form-item">
+    <label class="layui-form-label">开关</label>
+    <div class="layui-input-block">
+      <input type="checkbox" name="switch" lay-skin="switch">
+    </div>
+  </div> -->
+  <div class="layui-form-item">
+    <label class="layui-form-label">条形码</label>
+    <div class="layui-input-block">
+      <input type="text" name="barcode" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">现价</label>
+    <div class="layui-input-block">
+      <input type="text" name="curprice" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">市场价</label>
+    <div class="layui-input-block">
+      <input type="text" name="oriprice" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">成本价</label>
+    <div class="layui-input-block">
+      <input type="text" name="cosprice" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">库存量</label>
+    <div class="layui-input-block">
+      <input type="text" name="inventory" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">限制购买量</label>
+    <div class="layui-input-block">
+      <input type="text" name="restrict" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">已经购买量</label>
+    <div class="layui-input-block">
+      <input type="text" name="already" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">运费</label>
+    <div class="layui-input-block">
+      <input type="text" name="freight" required   autocomplete="off" class="layui-input">
+    </div>
+  </div>
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">商品属性</label>
+    <div class="layui-input-block">
+      <input type="radio" name="enum" value="1" title="1-推荐">
+      <input type="radio" name="enum" value="2" title="2-新品">
+      <input type="radio" name="enum" value="3" title="3-热卖">
+      <input type="radio" name="enum" value="4" title="4-促销">
+      <input type="radio" name="enum" value="5" title="5-包邮">
+      <input type="radio" name="enum" value="6" title="6-限时卖">
+      <input type="radio" name="enum" value="7" title="7-不参与会员折扣">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">商品状态</label>
+    <div class="layui-input-block">
+      <input type="radio" name="status" value="0" title="上架">
+      <input type="radio" name="status" value="1" title="下架">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">商品图片</label>
+    <div class="htmleaf-container">
+      <div class="form-group">
+        <input id="file-0" type="file" name="imagepath" multiple>
+      </div>
+  </div>
+  </div>
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">商品描述</label>
+    <div class="layui-input-block">
+      <textarea name="text" placeholder="请输入内容" class="layui-textarea" ></textarea>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <a href="javascript:;nextStep()" class="layui-btn" lay-submit lay-filter="formDemo">立即提交</a>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+	<!-- <script type="text/javascript">
+        var ue = UE.getEditor('container');
+        var ue = UE.getEditor('container1');
+  </script> -->  
+	<script src="layui.js"></script>
+	<link rel="stylesheet" href="layui.css">
+    <script type="text/javascript">
+    	layui.use('form', function(){
+		  var form = layui.form;
+		  
+		  //监听提交
+		  form.on('submit(myform)', function(data){
+		    layer.msg(JSON.stringify(data.field));
+		    return false;
+		    });
+		  });
+
+      function nextStep(){
+        document.getElementById('tijiao').submit();
+      }
+
+      //上传图片===================================
+        initFileInput("file-0","{:url('api/upload/index')}");
+        function initFileInput(ctrlName, uploadUrl) { 
+       var control = $('#' + ctrlName); 
+       control.fileinput({
+       language: 'zh', //设置语言
+       dataType: 'json',
+       uploadUrl: uploadUrl, //上传的地址
+       allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+       showUpload: true, //是否显示上传按钮
+       showCaption: true,//是否显示标题
+       showPreview: true,//是否显示文件的预览图,默认为true
+       showRemove: true,//是否显示删除/清空的按钮,默认为true
+       browseClass: "btn btn-primary", //按钮样式 
+       previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+       maxFileCount: 4,//表示允许同时上传的最大文件的个数 
+       dropZoneEnabled:true,//是否显示拖拽的区域
+       initialPreviewConfig: {
+        caption: ctrlName,
+        width: '120px',
+        url: uploadUrl,
+        key: 101,
+        success: function(){
+
+        }
+       }
+
+       });
+      }
+
+      //监听事件
+      $("#file-0").on("fileuploaded",function(event, data, previewId, index){
+        /*console.log(data.response);*/
+      });
+      //============================================
+    </script>
+{/block}
